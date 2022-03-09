@@ -16,7 +16,7 @@ function fetchAPI(cocktailAPI) {
 }
 
 function fetchSpoonByIngredients(spoonacularURL) {
-  var spoonacularURL = 'https://api.spoonacular.com/recipes/findByIngredients'
+  var spoonacularURL = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${spoonacularAPIKey}`
   fetch(spoonacularURL)
     .then(function (response) {
       var data = response.json();
@@ -29,3 +29,24 @@ function fetchSpoonByIngredients(spoonacularURL) {
       console.log(err);
     })
 }
+
+function getRecipeInfo(recipeInfo) {
+  var recipeInfo = `https://api.spoonacular.com/recipes/716429/information?apiKey=${spoonacularAPIKey}`
+  fetch(recipeInfo)
+  .then(function(repsonse){
+    var data = repsonse.json();
+    return data;
+  })
+  .then(function(data){
+    for (let i = 0; i < 10; i++) {
+      console.log(data.extendedIngredients[i].name)
+      // const element = data.extendedIngredients[i].name;
+      
+    }
+    console.log(data)
+  })
+  .catch(function(err){
+    console.log(err);
+  })
+}
+getRecipeInfo();
