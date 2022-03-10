@@ -1,5 +1,8 @@
 var spoonacularAPIKey = 'cc4c59b381934298b2f27908bf302eb4';
 
+searchEl = document.getElementsByClassName('search');
+
+
 function fetchAPI(cocktailAPI) {
   var cocktailAPI = 'www.thecocktaildb.com/api/json/v1/1/random.php'
   fetch(cocktailAPI)
@@ -16,7 +19,7 @@ function fetchAPI(cocktailAPI) {
 }
 
 function fetchSpoonByIngredients(spoonacularURL) {
-  var spoonacularURL = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${spoonacularAPIKey}`
+  var spoonacularURL = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientList}apiKey=${spoonacularAPIKey}`
   fetch(spoonacularURL)
     .then(function (response) {
       var data = response.json();
@@ -38,12 +41,13 @@ function getRecipeInfo(recipeInfo) {
     return data;
   })
   .then(function(data){
+
+    console.log(data)
+
     for (let i = 0; i < 10; i++) {
       console.log(data.extendedIngredients[i].name)
       // const element = data.extendedIngredients[i].name;
-      
     }
-    console.log(data)
   })
   .catch(function(err){
     console.log(err);
