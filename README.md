@@ -1,5 +1,4 @@
 # interactive-recipe-book
 
-## Collaborators
-
-Baron "IAmSkid" Skidmore and Rich "theGoat" Kim
+as a home cook
+i want to be able to input ingredients and recieve a recipe
