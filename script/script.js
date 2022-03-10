@@ -1,6 +1,13 @@
 var spoonacularAPIKey = 'cc4c59b381934298b2f27908bf302eb4';
 
-function fetchCocktails(name) {
+
+
+
+
+
+
+
+function fetchCocktails(ingredients) {
   var cocktailAPI = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin'
  
   fetch(cocktailAPI)
