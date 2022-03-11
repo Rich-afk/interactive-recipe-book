@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./script/drinks.js"></script>
     <title>Document</title>
 </head>
 
@@ -17,7 +16,7 @@
                 <img src="./MEALTIME.png" alt="site logo" style="max-height: 70px;" class="image is-48x48">
             </a>
         </div>
-
+        
         <nav class="navbar has-shadow is-primary">
             <div class="navbar-menu" id="nav-links">
                 <div class="navbar-end">
@@ -33,15 +32,16 @@
         <form id="user-form" class="card-body">
             <label class="form-label" for="Recipe">Ingredients:</label>
             <input name="ingredients" id="ingredients" type="text" autofocus="true" class="form-input" />
-            <button type="submit" class="button" value="submit input">Get Recipe</button>
+            <button type="submit" id="searchbtn" class="button" value="submit input">Get Recipe</button>
         </form>
     </div>
     <div class="col-12 col-md-8">
         <h2 class="subtitle">Showing Recipes for: <span id="recipe-search-term"></span></h2>
         <div id="recipe-container" class="list-group"></div>
     </div>
-
-
+    
+    
+    <script src="./script/drinks.js"></script>
 </body>
 
 </html>
