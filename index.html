@@ -30,11 +30,16 @@
             </div>
         </nav>
 
-        <div>
-            <input type="textarea" class="search" placeholder="Ingredients...">
-            <div class="button is-primary" type="submit">Submit</div>
+        <!-- added new search button, though we could put this somewhere else -->
+        <div class="card">
+            <form id="user-form" class="card-body">
+              <label class="form-label" for="ingredients">Ingredients</label>
+              <input name="ingredients" id="ingredients" type="text" autofocus="true" class="form-input" placeholder="Search..."/>
+              <button type="submit" class="btn">Get User</button>
+            </form>
         </div>
-        
+
+        <div class="modal"></div>
 
     </header>
 
