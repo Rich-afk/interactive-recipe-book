@@ -5,37 +5,16 @@ searchEl = document.querySelector('#ingredients');
 modalEl = document.querySelector('#modal');
 
 var ingredientList = '';
-
-function fetchCocktails(name) {
-  var cocktailAPI = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin'
-
-  fetch(cocktailAPI)
-    .then(function (response) {
-      var data = response.json();
-      return data;
-
-    })
-    .then(function (data) {
-      for (let i = 0; i < 10; i++) {
-
-        console.log(data.drinks[i])
-      }
-    })
-    .catch(function (err) {
-      console.log(err);
-    });
-}
+var exList = 'cheese'
 
 var formSubmitHandler = function (event) {
+  console.log("im working")
   event.preventDefault();
 
   var ingredient = searchEl.value.trim();
 
-  if (username) {
-    getIngredientRepos(username);
-
-    repoContainerEl.textContent = '';
-    nameInputEl.value = '';
+  if (ingredient) {
+    getIngredientRepos(ingredient);
   } else {
     alert('Please enter a valid ingredient');
   }
@@ -77,21 +56,34 @@ var getIngredientRepos = function (input) {
       }
     })
     .catch(function (error) {
-      alert('Unable to connect to database');
+      var modalBG = document.createElement('div');
+        modalBG.classList.add('modal-background');
+
+        var modalContent = document.createElement('div');
+        var modalText = 'Unable to connect to database'
+        modalContent.appendChild(modalText);
+        modalContent.classList.add('modal-content');
+
+        var button = document.createElement('button');
+        button.classList.add('modal-close is-large');
+
+        modalEl.appendChild(modalBG);
+        modalEl.appendChild(modalContent);
+        modalEl.appendChild(button);
     });
 };
 
-//switched api key to findByIngredients
-//im planning on taking a list of ingredients from the button i initialized and putting it into ingredientList
 function fetchSpoonByIngredients(spoonacularURL) {
   var spoonacularURL = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientList}apiKey=${spoonacularAPIKey}`
+  var exampleIngredients = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientList}apiKey=${spoonacularAPIKey}`
   fetch(spoonacularURL)
     .then(function (response) {
       var data = response.json();
       return data;
     })
     .then(function (data) {
-      //output possible ingredients
+      //output possible recipies
+
       console.log(data);
     })
     .catch(function (err) {
