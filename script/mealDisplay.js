@@ -19,7 +19,7 @@ function fetchAndDisplayDrinkForId(id) {
             var recipeName = data.title;
             var recipeNameEl = document.createElement('h2');
             recipeNameEl.textContent = recipeName;
-            recipeNameEl.classList.add('card-header-title', 'is-centered', 'my-5', 'has-background-primary', 'backgroundwidth')
+            recipeNameEl.classList.add('card-header-title', 'is-centered', 'my-5', 'backgroundwidth')
             instructionContainer.appendChild(recipeNameEl);
 
             var thumb = data.image;
@@ -32,7 +32,7 @@ function fetchAndDisplayDrinkForId(id) {
                 var ingredient = data.extendedIngredients[i].original;
                 var ingredientEl = document.createElement('p');
                 ingredientEl.textContent = ingredient;
-                ingredientEl.classList.add('is-size-3', 'has-text-left', 'has-background-primary')
+                ingredientEl.classList.add('is-size-4', 'has-text-left')
                 ingredientsEl.appendChild(ingredientEl);
             }
             instructionContainer.appendChild(ingredientsEl);
@@ -40,7 +40,7 @@ function fetchAndDisplayDrinkForId(id) {
             var instructions = data.instructions;
             var instructionEl = document.createElement('p');
             instructionEl.innerHTML = 'Instructions: ' + instructions;
-            instructionEl.classList.add('is-size-3', 'has-text-left', 'my-5', 'has-background-primary')
+            instructionEl.classList.add('is-size-4', 'has-text-left', 'my-5')
             instructionContainer.appendChild(instructionEl);
 
             if(data.winePairing != {}) {
@@ -48,7 +48,7 @@ function fetchAndDisplayDrinkForId(id) {
                 console.log(data.winePairing.pairingText);
                 var winePairEl = document.createElement('p');
                 winePairEl.textContent = winePair;
-                winePairEl.classList.add('is-size-3', 'has-text-left', 'my-5', 'has-background-primary')
+                winePairEl.classList.add('is-size-4', 'has-text-left', 'my-5')
                 instructionContainer.appendChild(winePairEl);
             }
 
