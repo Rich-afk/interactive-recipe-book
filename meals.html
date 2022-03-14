@@ -8,40 +8,50 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./style.css">
     <title>MealTime Magic Recipe Finder</title>
+    <link rel="shortcut icon" type="image/jpg" href="output-onlinepngtools.png" />
 </head>
 
 <body>
     <header>
-        <div class="navbar has-shadow is-primary">
-            <h1>MealTime Magic</h1>
-            <a class="navbar-item">
-                <img src="./MEALTIME.png" alt="site logo" style="max-height: 70px;" class="image is-48x48">
-            </a>
-        </div>
-        
-        <nav class="navbar has-shadow is-primary">
+        <nav class="navbar has-shadow is-primary is-flex-direction-row is-justify-content-space-evenly">
+            <div class="navbar-brand is-size-1">
+                <a href="./index.html">
+                    <img src="./output-onlinepngtools.png" alt="site logo" style="max-height: 150px;" class="py-2 px-2">
+                </a>
+            </div>
+
             <div class="navbar-menu" id="nav-links">
-                <div class="navbar-end">
+                <div class="navbar-end is-size-4">
+                    <a href="meals.html" class="navbar-item">Meal Recipes</a>
                     <a href="drinks.html" class="navbar-item">Drink Recipes</a>
-                    <a href="index.html" class="navbar-item">Home</a>
+                    <a href="https://spoonacular.com/food-api" class="navbar-item" target="_blank">Spoonacular</a>
                 </div>
             </div>
         </nav>
+
     </header>
-    <div class="card">
-        <h3 class="card-header text-uppercase py-5 is-size-1">Search By Ingredient</h3>
-        <form id="user-form" class="card-body py-5 has-text-centered">
-            <label class="form-label has-text-centered" for="Recipe">Ingredient:</label>
-            <input name="ingredients" id="ingredients" type="text" autofocus="true" class="form-input is-centered" />
-            <button type="submit" id="searchbtn" class="button has-text-centered is-primary" value="submit input">Get Recipe</button>
-        </form>
-    </div>
-    <div class="col-12 col-md-8">
-        <h2 class="subtitle"><span id="recipe-search-term"></span></h2>
-        <div id="searchsavedbutton"></div>
-        <div id="recipe-container" class="list-group"></div>
-    </div>
-    
+    <main>
+        <div class="card">
+            <h3 class="card-header text-uppercase py-5 is-size-1 is-flex is-justify-content-center">Search By Ingredient For Meals
+            </h3>
+            <form id="user-form" class="card-body py-5 has-text-centered is-size-3 is-flex is-justify-content-center">
+                <label class="form-label has-text-centered mx-3" for="Recipe">Ingredient:</label>
+                <input name="ingredients" id="ingredients" type="text" autofocus="true" class="form-input mx-3" />
+                <button type="submit" id="searchbtn" class="button has-text-centered is-primary mx-3 is-large"
+                    value="submit input">Get
+                    Recipe</button>
+            </form>
+        </div>
+        <div class="col-12 col-md-8">
+            <h2 class="subtitle"><span id="recipe-search-term"></span></h2>
+            <div id="searchsavedbutton"></div>
+            <div id="recipe-container" class="list-group"></div>
+        </div>
+    </main>
+
+    <footer id="footer2" class="footer has-background-primary">
+        <h3 class="is-size-3 has-text-centered">Copyright R&B Enterprise</h3>
+    </footer>
 
     <script src="./script/script.js"></script>
 
