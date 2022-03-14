@@ -19,6 +19,7 @@ function fetchAndDisplayDrinkForId(id) {
             var recipeName = data.title;
             var recipeNameEl = document.createElement('h2');
             recipeNameEl.textContent = recipeName;
+            recipeNameEl.classList.add('card-header-title', 'is-centered', 'my-5', 'has-background-primary', 'backgroundwidth')
             instructionContainer.appendChild(recipeNameEl);
 
             var thumb = data.image;
@@ -26,18 +27,20 @@ function fetchAndDisplayDrinkForId(id) {
             thumbEl.src = thumb;
             instructionContainer.appendChild(thumbEl);
 
-            var ingredientsEl = document.createElement('p')
+            var ingredientsEl = document.createElement('p');
             for (var i = 0; i < data.extendedIngredients.length; i++) {
                 var ingredient = data.extendedIngredients[i].original;
                 var ingredientEl = document.createElement('p');
                 ingredientEl.textContent = ingredient;
+                ingredientEl.classList.add('is-size-3', 'has-text-left', 'has-background-primary')
                 ingredientsEl.appendChild(ingredientEl);
             }
             instructionContainer.appendChild(ingredientsEl);
 
             var instructions = data.instructions;
             var instructionEl = document.createElement('p');
-            instructionEl.innerHTML = instructions;
+            instructionEl.innerHTML = 'Instructions: ' + instructions;
+            instructionEl.classList.add('is-size-3', 'has-text-left', 'my-5', 'has-background-primary')
             instructionContainer.appendChild(instructionEl);
 
         })
