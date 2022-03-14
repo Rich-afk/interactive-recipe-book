@@ -8,27 +8,49 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./style.css">
     <title>Interactive Recipe Book</title>
+    <link rel="shortcut icon" type="image/jpg" href="output-onlinepngtools.png" />
 </head>
 
 <body>
     <header>
-        <nav class="navbar has-shadow is-primary">
-            <h1>MealTime Magic</h1>
-            <div class="navbar-brand">
-                <a class="navbar-item">
-                    <img src="./MEALTIME.png" alt="site logo" style="max-height: 70px;" class="py-2 px-2">
+        <nav class="navbar has-shadow is-primary is-flex-direction-row is-justify-content-space-evenly">
+            <div class="navbar-brand is-size-1">
+                <a href="./index.html">
+                    <img src="./output-onlinepngtools.png" alt="site logo" style="max-height: 150px;" class="py-2 px-2">
                 </a>
             </div>
 
-            <div class="navbar-menu" id="nav-links">
-                <div class="navbar-end">
+            <div class="navbar-menu is-active" id="nav-links">
+                <div class="navbar-end is-size-4">
                     <a href="meals.html" class="navbar-item">Meal Recipes</a>
                     <a href="drinks.html" class="navbar-item">Drink Recipes</a>
                     <a href="https://spoonacular.com/food-api" class="navbar-item" target="_blank">Spoonacular</a>
                 </div>
             </div>
         </nav>
+
     </header>
+
+    <div class="is-flex is-justify-content-center is-align-content-center">
+        <img src="./output-onlinepngtools.png" alt="Site Logo">
+    </div>
+    <main class="is-flex-wrap-wrap is-justify-content-center">
+        <p class="is-size-4 is-flex is-justify-content-center is-align-content-center mb-5">MealTime Magic is an
+            application
+            that allows you to search for recipes of food and beverage items based on ingredients!</p>
+        <h2 class="is-size-2 is-flex is-justify-content-center">Get Started!</h2>
+        <div class="is-flex is-justify-content-center my-4">
+            <a href="./meals.html">
+                <button class="button is-primary mx-2">Get Meal Recipes</button>
+            </a>
+            <a href="./drinks.html">
+                <button class="button is-primary mx-2">Get Drink Recipes</button>
+            </a>
+        </div>
+    </main>
+    <footer id="footer" class="footer has-background-primary">
+        <h3 class="is-size-3 has-text-centered">Copyright R&B Enterprise</h3>
+    </footer>
 </body>
 
 </html>
