@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
     <title>Interactive Recipe Book</title>
 </head>
 
@@ -17,7 +16,7 @@
             <h1>MealTime Magic</h1>
             <div class="navbar-brand">
                 <a class="navbar-item">
-                     <img src="./MEALTIME.png" alt="site logo" style="max-height: 70px;" class="py-2 px-2"> 
+                    <img src="./MEALTIME.png" alt="site logo" style="max-height: 70px;" class="py-2 px-2">
                 </a>
             </div>
 
@@ -29,8 +28,26 @@
                 </div>
             </div>
         </nav>
-
     </header>
+
+    <!-- added new search button, though we could put this somewhere else -->
+    <div class="card">
+        <h3 class="card-header text-uppercase">Search By Ingredients</h3>
+        <form id="user-form" class="card-body">
+            <label class="form-label" for="Recipe">Ingredients:</label>
+            <input name="ingredients" id="ingredients" type="text" autofocus="true" class="form-input" />
+            <button type="submit" id="searchbtn" class="button" value="submit input">Get Recipe</button>
+        </form>
+    </div>
+    <div class="col-12 col-md-8">
+        <h2 class="subtitle">Showing Recipes for: <span id="recipe-search-term"></span></h2>
+        <div id="recipe-container" class="list-group"></div>
+    </div>
+    <div class="modal"></div>
+
+    <script src="./script/script.js"></script>
+
+
 
 </body>
 
