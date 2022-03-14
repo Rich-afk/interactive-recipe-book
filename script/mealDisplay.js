@@ -1,4 +1,4 @@
-var spoonacularAPIKey = 'e23d847037004d56939e5a25002e5edd';
+var spoonacularAPIKey = '2a35f712d5844467ad80be6414daaa93';
 
 
 function fetchAndDisplayDrinkForId(id) {
@@ -42,6 +42,15 @@ function fetchAndDisplayDrinkForId(id) {
             instructionEl.innerHTML = 'Instructions: ' + instructions;
             instructionEl.classList.add('is-size-3', 'has-text-left', 'my-5', 'has-background-primary')
             instructionContainer.appendChild(instructionEl);
+
+            if(data.winePairing != {}) {
+                var winePair = data.winePairing.pairingText;
+                console.log(data.winePairing.pairingText);
+                var winePairEl = document.createElement('p');
+                winePairEl.textContent = winePair;
+                winePairEl.classList.add('is-size-3', 'has-text-left', 'my-5', 'has-background-primary')
+                instructionContainer.appendChild(winePairEl);
+            }
 
         })
         .catch(function (err) {
