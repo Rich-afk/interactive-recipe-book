@@ -55,6 +55,7 @@ var displayDrinkRecipes = function (drinksArray) {
 
         var pictureEl = document.createElement('img');
         pictureEl.src = drink.strDrinkThumb;
+        pictureEl.classList.add('mt-6')
 
         linkEl.appendChild(pictureEl);
 
@@ -63,13 +64,13 @@ var displayDrinkRecipes = function (drinksArray) {
         recipeContainerEl.appendChild(drinkEl);
     }
 };
-function saveingredient(searchinput) {
+function saveIngredient(searchinput) {
     var previousSearches = JSON.parse(localStorage.getItem("saved-searches")) || [];
     previousSearches.push(searchinput)
     localStorage.setItem("saved-searches", JSON.stringify(previousSearches));
 }
 
-function displaypreviousSearches() {
+function displayPreviousSearches() {
     var previousSearches = JSON.parse(localStorage.getItem("saved-searches")) || [];
     previousSearches = new Set(previousSearches);
     console.log(previousSearches)
@@ -87,12 +88,12 @@ function displaypreviousSearches() {
 
 
 }
-displaypreviousSearches();
+displayPreviousSearches();
 
 searchBtn.addEventListener('click', function (event) {
     event.preventDefault();
     fetchCocktails(inputfield.value);
-    saveingredient(inputfield.value);
+    saveIngredient(inputfield.value);
     inputfield.value = '';
 })
 
