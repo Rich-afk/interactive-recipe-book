@@ -14,14 +14,18 @@ Mealtime Magic is an interactive recipe book for people who have a specific ingr
 
 This website was built with [spoonacular API](https://spoonacular.com/food-api), [TheCocktailDB API](https://www.thecocktaildb.com/api.php), and [Bulma v0.9.3](https://bulma.io/).
 
-We Bulma by calling linking it in our html.
+We called Bulma by linking it in our html.
 ```bash
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 ```
 
 ## Visual
 
-
+![indexVisual](./readMeImg/index.png)
+![drinkVisual](./readMeImg/drink.pmg)
+![mealVisual](./readMeImg/meal.png)
+![drinkDisplay](./readMeImg/drinkDisplay.png)
+![mealDisplay](./readMeImg/mealDisplay.png)
 
 
 ## Webpage Link
