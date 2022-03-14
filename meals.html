@@ -7,43 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./style.css">
-    <title>Interactive Recipe Book</title>
+    <title>MealTime Magic Recipe Finder</title>
 </head>
 
 <body>
     <header>
-        <nav class="navbar has-shadow is-primary">
+        <div class="navbar has-shadow is-primary">
             <h1>MealTime Magic</h1>
-            <div class="navbar-brand">
-                <a class="navbar-item">
-                    <img src="./MEALTIME.png" alt="site logo" style="max-height: 70px;" class="py-2 px-2">
-                </a>
-            </div>
-
+            <a class="navbar-item">
+                <img src="./MEALTIME.png" alt="site logo" style="max-height: 70px;" class="image is-48x48">
+            </a>
+        </div>
+        
+        <nav class="navbar has-shadow is-primary">
             <div class="navbar-menu" id="nav-links">
                 <div class="navbar-end">
-                    <a class="navbar-item">Meal Recipes</a>
-                    <a class="navbar-item">Drink Recipes</a>
-                    <a class="navbar-item">Spoonacular</a>
+                    <a href="drinks.html" class="navbar-item">Drink Recipes</a>
+                    <a href="index.html" class="navbar-item">Home</a>
                 </div>
             </div>
         </nav>
     </header>
-
-    <!-- added new search button, though we could put this somewhere else -->
     <div class="card">
-        <h3 class="card-header text-uppercase">Search By Ingredients</h3>
-        <form id="user-form" class="card-body">
-            <label class="form-label" for="Recipe">Ingredients:</label>
-            <input name="ingredients" id="ingredients" type="text" autofocus="true" class="form-input" />
-            <button type="submit" id="searchbtn" class="button" value="submit input">Get Recipe</button>
+        <h3 class="card-header text-uppercase py-5 is-size-1">Search By Ingredient</h3>
+        <form id="user-form" class="card-body py-5 has-text-centered">
+            <label class="form-label has-text-centered" for="Recipe">Ingredient:</label>
+            <input name="ingredients" id="ingredients" type="text" autofocus="true" class="form-input is-centered" />
+            <button type="submit" id="searchbtn" class="button has-text-centered is-primary" value="submit input">Get Recipe</button>
         </form>
     </div>
     <div class="col-12 col-md-8">
-        <h2 class="subtitle">Showing Recipes for: <span id="recipe-search-term"></span></h2>
+        <h2 class="subtitle"><span id="recipe-search-term"></span></h2>
+        <div id="searchsavedbutton"></div>
         <div id="recipe-container" class="list-group"></div>
     </div>
-    <div class="modal"></div>
+    
 
     <script src="./script/script.js"></script>
 

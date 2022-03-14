@@ -6,8 +6,7 @@ searchBtn = document.querySelector('#searchbtn');
 modalEl = document.querySelector('#modal');
 recipeContainerEl = document.querySelector('#recipe-container');
 inputEl = document.querySelector('#ingredients');
-
-var ingredientList = [];
+searchSavedButtonEl = document.querySelector('#searchsavedbutton')
 
 
 function getIngredientRepos(name) {
@@ -15,48 +14,29 @@ function getIngredientRepos(name) {
 
   fetch(apiUrl)
     .then(function (response) {
-      if (response.ok) {
-        ingredientList.push(name);
-        console.log(ingredientList);
         var data = response.json();
         return data;
-      }
-      // else {
-      //   //when the ingredient does not exist
 
-      //   var modalBG = document.createElement('div');
-      //   modalBG.classList.add('modal-background');
-
-      //   var modalContent = document.createElement('div');
-      //   var modalText = 'Error: Invalid Ingredient'
-      //   modalContent.appendChild(modalText);
-      //   modalContent.classList.add('modal-content');
-
-      //   var button = document.createElement('button');
-      //   button.classList.add('modal-close is-large');
-
-      //   modalEl.appendChild(modalBG);
-      //   modalEl.appendChild(modalContent);
-      //   modalEl.appendChild(button);
-
-
-      // }
     })
     .then(function (data) {
-      console.log(data)
-      fetchSpoonByIngredients(ingredientList);
+      //console.log(data)
+      fetchSpoonByIngredients(name);
 
-  })
+    })
     .catch(function (error) {
-      // console.log(err);
+      if (err) {
+        recipeContainerEl.textContent = 'No recipes found.';
+        recipeContainerEl.classList.add('has-text-centered', 'title', 'is-1')
+        return;
+    }
+    console.log(err);
     });
 };
 
 
-function fetchSpoonByIngredients(ingredientList) {
-  var ingredients = ingredientList.join(',+');
-  console.log(ingredients)
-  var spoonacularURL = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${spoonacularAPIKey}`
+function fetchSpoonByIngredients(ingredient) {
+  //console.log(ingredient)
+  var spoonacularURL = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredient}&apiKey=${spoonacularAPIKey}`
   fetch(spoonacularURL)
     .then(function (response) {
       var data = response.json();
@@ -64,20 +44,22 @@ function fetchSpoonByIngredients(ingredientList) {
     })
     .then(function (data) {
       //output possible recipies
-      console.log(data);
+      //console.log(data);
       for (var i = 0; i < 10; i++) {
 
         var recipe = data[i];
 
         var recipeEl = document.createElement('div');
+        recipeEl.classList.add('title', 'is-1', 'has-text-centered', 'is-size-2', 'my-5', 'py-5');
 
         var titleEl = document.createElement('span');
         // console.log(recipe.title)
         titleEl.textContent = recipe.title;
+        titleEl.classList.add('block', 'card-header-title', 'is-centered', 'has-background-primary',)
         recipeEl.appendChild(titleEl);
 
         var linkEl = document.createElement('a');
-        linkEl.setAttribute("href", `mealDisplay.html?id=${recipe.id}`);
+        linkEl.setAttribute("href", `mealsDisplay.html?id=${recipe.id}`);
 
         var pictureEl = document.createElement('img');
         pictureEl.src = recipe.image;
@@ -91,7 +73,7 @@ function fetchSpoonByIngredients(ingredientList) {
         recipeContainerEl.appendChild(recipeEl);
       }
 
-      console.log(data);
+      //console.log(data);
     })
     .catch(function (err) {
       console.log(err);
@@ -99,16 +81,37 @@ function fetchSpoonByIngredients(ingredientList) {
 }
 
 
+function saveIngredient(searchinput) {
+  var previousSearches = JSON.parse(localStorage.getItem("saved-ingredients")) || [];
+  previousSearches.push(searchinput);
+  localStorage.setItem("saved-ingredients", JSON.stringify(previousSearches));
+}
+
+function displaypreviousSearches() {
+  var previousSearches = JSON.parse(localStorage.getItem("saved-ingredients")) || [];
+  previousSearchesSet = new Set(previousSearches);
+  //console.log(previousSearchesSet)
+  previousSearchesSet.forEach(element => {
+
+      var savedSearchButton = document.createElement('button')
+      savedSearchButton.classList.add('button', 'is-primary', 'column', 'is-large', 'my-2', 'has-text-centered', 'has-text-justified', 'is-fullwidth')
+      savedSearchButton.textContent = element;
+      savedSearchButton.addEventListener('click', function (event) {
+          event.preventDefault();
+          fetchSpoonByIngredients(event.target.innerText);
+      })
+      searchSavedButtonEl.appendChild(savedSearchButton)
+  });
+
+
+}
+displaypreviousSearches();
+
 searchBtn.addEventListener('click', function (event) {
   event.preventDefault();
   recipeContainerEl.innerHTML = '';
   // console.log(inputEl.value)
   //console.log(inputEl.value);
   getIngredientRepos(inputEl.value);
+  saveIngredient(inputEl.value);
 })
-
-//fetchSpoonByIngredients(['cheese']);
-//getRecipeInfo(716429);
-
-
-
